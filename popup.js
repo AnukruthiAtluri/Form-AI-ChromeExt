@@ -7,18 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateUIForSignedInUser(username) {
     usernameDisplay.textContent = `Hi, ${username}`;
-    signInBtn.style.display = 'none';
-    signOutBtn.style.display = 'block';
-    settingsBtn.style.display = 'block'; // Show settings for signed-in users
-    autofillBtn.style.display = 'block'; // Show autofill for signed-in users
+    signInBtn.style.display = "none";
+    signOutBtn.style.display = "block";
+    settingsBtn.style.display = "block"; // Show settings for signed-in users
+    autofillBtn.style.display = "block"; // Show autofill for signed-in users
   }
 
   function updateUIForSignedOutUser() {
-    usernameDisplay.textContent = '';
-    signInBtn.style.display = 'block';
-    signOutBtn.style.display = 'none';
-    settingsBtn.style.display = 'none'; // Hide settings for signed-out users
-    autofillBtn.style.display = 'none'; // Hide autofill for signed-out users
+    usernameDisplay.textContent = "";
+    signInBtn.style.display = "block";
+    signOutBtn.style.display = "none";
+    settingsBtn.style.display = "none"; // Hide settings for signed-out users
+    autofillBtn.style.display = "none"; // Hide autofill for signed-out users
   }
 
   // Initial UI update based on signed-in state
@@ -30,6 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Settings button event listener
+  settingsBtn.addEventListener("click", () => {
+    const profileUrl = "https://dev.dk5o9ng78c4g4.amplifyapp.com";
+    chrome.tabs.create({ url: profileUrl }); // Opens the profile URL in a new tab
+  });
+
   signInBtn.addEventListener("click", () => {
     const authUrl = "https://dev.dk5o9ng78c4g4.amplifyapp.com";
     chrome.identity.launchWebAuthFlow(
@@ -37,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       (redirectUrl) => {
         console.log("Redirect URL:", redirectUrl);
         // Extract username or token logic
-        const username = "User123"; // Replace with actual logic
+        const username = "User"; // Need to replace with actual logic
         chrome.storage.sync.set({ username: username }, () => {
           updateUIForSignedInUser(username);
         });
@@ -52,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   autofillBtn.addEventListener("click", () => {
-    chrome.runtime.sendMessage({action: "autofill"}, (response) => {
+    chrome.runtime.sendMessage({ action: "autofill" }, (response) => {
       if (response.status === "success") {
         console.log("Auto-fill successful");
       }
