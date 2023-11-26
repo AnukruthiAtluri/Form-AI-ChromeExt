@@ -1,44 +1,69 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    width: 300px;
-  }
-  
-  header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 10px;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  header img {
-    width: 48px;
-  }
-  
-  main {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 18px;
-  }
-  
-  footer {
-    background-color: #f1f1f1;
-    color: #333;
-    text-align: center;
-    padding: 10px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background-color: #0056b3; /* Updated color */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header img {
+  width: 48px;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: 2px solid transparent; /* Updated for outline */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s; /* Updated for smooth border transition */
+  background-color: white; /* Set a default background color */
+}
+
+button#signin {
+  border-color: #0056b3; /* Specific style for signin button */
+}
+
+button:hover {
+  background-color: #0275d8;
+  color: white;
+  border-color: #0275d8; /* Update border color on hover */
+}
+
+footer {
+  background-color: #dddddd;
+  color: #333;
+  text-align: center;
+  padding: 10px;
+}

@@ -3,7 +3,8 @@
   "name": "FormAI Extension",
   "version": "1.0",
   "description": "Auto-fill forms for job and university applications",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["activeTab", "storage","identity",
+  "https://dev.dk5o9ng78c4g4.amplifyapp.com/"],
   "browser_action": {
     "default_popup": "popup.html"
   },

@@ -1,8 +1,5 @@
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.action === "autofill") {
-      console.log("Auto-fill initiated");
-      // Perform auto-fill logic here
-      sendResponse({status: "success"});
-    }
-  });
-  
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "install") {
+    chrome.tabs.create({ url: "https://dev.dk5o9ng78c4g4.amplifyapp.com/" });
+  }
+});
